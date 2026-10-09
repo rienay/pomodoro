@@ -4,6 +4,8 @@ A fluid, tactile Pomodoro web application with adorable cartoon mascots, gentle 
 
 Designed to be deployed seamlessly on **Vercel**.
 
+📖 **[Lihat Dokumentasi Arsitektur, Alur Data & Sequence Diagram (WHITEBOARD_ARCHITECTURE.md)](./WHITEBOARD_ARCHITECTURE.md)**
+
 ---
 
 ## ✨ Features & Apple Design Highlights
