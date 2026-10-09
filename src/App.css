@@ -1510,3 +1510,104 @@
   text-align: left;
 }
 
+/* Mascot Name Badge */
+.mascot-name-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+  margin-top: 1px;
+  background: var(--color-bg-tertiary);
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-subtle);
+  pointer-events: none;
+}
+
+/* =========================================================
+   🦋 AMBIENT FLOATERS (BUTTERFLIES, FLOWERS, BUBBLES)
+   ========================================================= */
+
+.ambient-floaters-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.floater-item {
+  position: absolute;
+  top: -60px;
+  opacity: 0;
+  will-change: transform, opacity;
+  user-select: none;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.08));
+}
+
+.floater-item.float-down {
+  animation: float-down-drift infinite linear;
+}
+
+.floater-item.float-up {
+  top: auto;
+  bottom: -60px;
+  animation: float-up-drift infinite linear;
+}
+
+@keyframes float-down-drift {
+  0% {
+    transform: translateY(-50px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.72;
+  }
+  88% {
+    opacity: 0.72;
+  }
+  100% {
+    transform: translateY(105vh) translateX(var(--drift-x, 30px)) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float-up-drift {
+  0% {
+    transform: translateY(50px) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.78;
+  }
+  88% {
+    opacity: 0.78;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(var(--drift-x, 30px)) rotate(-180deg);
+    opacity: 0;
+  }
+}
+
+/* Butterfly gentle flutter */
+.floater-item.type-butterfly {
+  animation: float-down-drift 10s infinite linear, butterfly-wing 1.4s infinite ease-in-out;
+}
+
+@keyframes butterfly-wing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.82, 1.15) rotate(5deg);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-floaters-container {
+    display: none;
+  }
+}
+
+

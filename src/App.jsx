@@ -12,6 +12,7 @@ import { AmbientSoundBar } from './components/AmbientSoundBar';
 import { SettingsModal } from './components/SettingsModal';
 import { ThemeSelector } from './components/ThemeSelector';
 import { MascotCompanion } from './components/MascotCompanion';
+import { AmbientFloaters } from './components/AmbientFloaters';
 import { playTickSound, playChimeSound, ambientEngine, triggerHaptic } from './utils/audio';
 
 const DEFAULT_SETTINGS = {
@@ -352,6 +353,9 @@ export default function App() {
       {/* Top Background Ambient Glow Layer */}
       <div className={`ambient-backdrop mode-${mode}`} />
 
+      {/* Floating Butterflies, Sakura Petals, Clovers, or Bubbles */}
+      <AmbientFloaters theme={themeMode} />
+
       {/* Top Floating Dynamic Island */}
       <header className="top-navigation-bar">
         <div className="nav-left">
@@ -403,8 +407,8 @@ export default function App() {
       <main className="app-main-content">
         {/* Left Column: Centerpiece Timer Hero */}
         <section className="timer-hero-section">
-          {/* Cute Cartoon Mascot Companion: Pomi */}
-          <MascotCompanion mode={mode} isRunning={isRunning} />
+          {/* Cute Cartoon Mascot Companion (Theme Reactive) */}
+          <MascotCompanion mode={mode} isRunning={isRunning} theme={themeMode} />
 
           {/* iOS Segmented Glass Pill */}
           <div className="mode-pill-wrapper">
