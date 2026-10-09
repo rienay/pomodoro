@@ -72,6 +72,118 @@
   --color-apple-indigo: #5e5ce6;
 }
 
+/* 🌸 Pastel Pink (Sakura Milk / Strawberry) */
+[data-theme="pink"] {
+  --color-bg-base: #fff0f5;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: rgba(255, 228, 238, 0.75);
+  --color-bg-glass: rgba(255, 242, 248, 0.78);
+  --color-bg-glass-heavy: rgba(255, 238, 246, 0.92);
+
+  --color-text-primary: #592535;
+  --color-text-secondary: #9b5a6f;
+  --color-text-tertiary: #cc8da1;
+
+  --color-border: rgba(238, 160, 185, 0.32);
+  --color-border-subtle: rgba(238, 160, 185, 0.15);
+  --color-border-highlight: rgba(255, 255, 255, 0.98);
+
+  --color-shadow: rgba(200, 70, 110, 0.1);
+  --color-shadow-hover: rgba(200, 70, 110, 0.18);
+
+  --color-apple-red: #ff5277;
+  --color-apple-orange: #ff8e6e;
+  --color-apple-green: #5cc28c;
+  --color-apple-teal: #4ec2d6;
+  --color-apple-blue: #7ba8f8;
+  --color-apple-purple: #c86dd7;
+  --color-apple-indigo: #8d75e6;
+}
+
+/* 🍯 Pastel Yellow (Honey Butter / Lemon Cream) */
+[data-theme="yellow"] {
+  --color-bg-base: #fffbee;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: rgba(254, 243, 205, 0.75);
+  --color-bg-glass: rgba(255, 251, 236, 0.8);
+  --color-bg-glass-heavy: rgba(255, 249, 226, 0.92);
+
+  --color-text-primary: #4a3b18;
+  --color-text-secondary: #8c7336;
+  --color-text-tertiary: #bfa665;
+
+  --color-border: rgba(234, 182, 36, 0.28);
+  --color-border-subtle: rgba(234, 182, 36, 0.14);
+  --color-border-highlight: rgba(255, 255, 255, 0.98);
+
+  --color-shadow: rgba(180, 130, 20, 0.08);
+  --color-shadow-hover: rgba(180, 130, 20, 0.16);
+
+  --color-apple-red: #ea580c;
+  --color-apple-orange: #d97706;
+  --color-apple-green: #65a30d;
+  --color-apple-teal: #0d9488;
+  --color-apple-blue: #2563eb;
+  --color-apple-purple: #9333ea;
+  --color-apple-indigo: #6366f1;
+}
+
+/* 🫧 Pastel Blue (Cloud Sky / Cotton Candy) */
+[data-theme="blue"] {
+  --color-bg-base: #f0f7ff;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: rgba(224, 242, 254, 0.75);
+  --color-bg-glass: rgba(240, 247, 255, 0.8);
+  --color-bg-glass-heavy: rgba(234, 245, 255, 0.92);
+
+  --color-text-primary: #1a3860;
+  --color-text-secondary: #53779e;
+  --color-text-tertiary: #8eaecf;
+
+  --color-border: rgba(125, 185, 235, 0.3);
+  --color-border-subtle: rgba(125, 185, 235, 0.14);
+  --color-border-highlight: rgba(255, 255, 255, 0.98);
+
+  --color-shadow: rgba(60, 120, 190, 0.1);
+  --color-shadow-hover: rgba(60, 120, 190, 0.18);
+
+  --color-apple-red: #f43f5e;
+  --color-apple-orange: #f59e0b;
+  --color-apple-green: #10b981;
+  --color-apple-teal: #06b6d4;
+  --color-apple-blue: #0284c7;
+  --color-apple-purple: #8b5cf6;
+  --color-apple-indigo: #6366f1;
+}
+
+/* 🍵 Pastel Matcha (Sage Oat / Gentle Mint) */
+[data-theme="mint"] {
+  --color-bg-base: #f2f9f4;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: rgba(222, 247, 230, 0.75);
+  --color-bg-glass: rgba(242, 249, 244, 0.8);
+  --color-bg-glass-heavy: rgba(236, 248, 239, 0.92);
+
+  --color-text-primary: #1b4225;
+  --color-text-secondary: #4f785b;
+  --color-text-tertiary: #85aa90;
+
+  --color-border: rgba(110, 195, 135, 0.28);
+  --color-border-subtle: rgba(110, 195, 135, 0.14);
+  --color-border-highlight: rgba(255, 255, 255, 0.98);
+
+  --color-shadow: rgba(50, 140, 80, 0.08);
+  --color-shadow-hover: rgba(50, 140, 80, 0.16);
+
+  --color-apple-red: #e11d48;
+  --color-apple-orange: #ea580c;
+  --color-apple-green: #16a34a;
+  --color-apple-teal: #0d9488;
+  --color-apple-blue: #0284c7;
+  --color-apple-purple: #7c3aed;
+  --color-apple-indigo: #4f46e5;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;

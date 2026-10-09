@@ -10,6 +10,8 @@ import { ActivityRings } from './components/ActivityRings';
 import { TaskReminders } from './components/TaskReminders';
 import { AmbientSoundBar } from './components/AmbientSoundBar';
 import { SettingsModal } from './components/SettingsModal';
+import { ThemeSelector } from './components/ThemeSelector';
+import { MascotCompanion } from './components/MascotCompanion';
 import { playTickSound, playChimeSound, ambientEngine, triggerHaptic } from './utils/audio';
 
 const DEFAULT_SETTINGS = {
@@ -20,7 +22,7 @@ const DEFAULT_SETTINGS = {
   autoStartBreaks: false,
   autoStartPomodoros: false,
   soundEnabled: true,
-  theme: 'system', // 'system' | 'light' | 'dark'
+  theme: 'pink', // 'pink' | 'yellow' | 'blue' | 'mint' | 'light' | 'dark'
 };
 
 const INITIAL_TASKS = [
@@ -373,20 +375,14 @@ export default function App() {
         </div>
 
         <div className="nav-right">
-          {/* Quick Theme Toggle */}
-          <button
-            type="button"
-            className="nav-icon-btn glass-panel press-scale"
-            onClick={() => {
-              playTickSound(0.2);
-              const nextTheme = themeMode === 'dark' ? 'light' : 'dark';
-              setThemeMode(nextTheme);
-              setSettings(s => ({ ...s, theme: nextTheme }));
+          {/* Cute Pastel Theme Selector Dropdown */}
+          <ThemeSelector
+            currentTheme={themeMode}
+            onSelectTheme={(t) => {
+              setThemeMode(t);
+              setSettings((s) => ({ ...s, theme: t }));
             }}
-            title="Toggle Light/Dark Theme"
-          >
-            {themeMode === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
+          />
 
           {/* Settings Trigger */}
           <button
@@ -407,6 +403,9 @@ export default function App() {
       <main className="app-main-content">
         {/* Left Column: Centerpiece Timer Hero */}
         <section className="timer-hero-section">
+          {/* Cute Cartoon Mascot Companion: Pomi */}
+          <MascotCompanion mode={mode} isRunning={isRunning} />
+
           {/* iOS Segmented Glass Pill */}
           <div className="mode-pill-wrapper">
             <ModePill currentMode={mode} onSelectMode={handleSelectMode} />

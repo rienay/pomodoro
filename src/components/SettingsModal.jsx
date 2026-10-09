@@ -222,27 +222,30 @@ export function SettingsModal({
 
           {/* Section: Theme */}
           <div className="settings-section">
-            <span className="section-header-label">APPEARANCE</span>
-            <div className="theme-toggle-group">
+            <span className="section-header-label">APPEARANCE & THEMES 🎀</span>
+            <div className="theme-toggle-grid">
               {[
-                { id: 'system', label: 'Auto', icon: Monitor },
-                { id: 'light', label: 'Light', icon: Sun },
-                { id: 'dark', label: 'Dark', icon: Moon },
+                { id: 'pink', label: 'Sakura Pink', emoji: '🌸', color: '#ff8da1' },
+                { id: 'yellow', label: 'Honey Butter', emoji: '🍯', color: '#f59e0b' },
+                { id: 'blue', label: 'Cotton Blue', emoji: '🫧', color: '#38bdf8' },
+                { id: 'mint', label: 'Matcha Mochi', emoji: '🍵', color: '#34d399' },
+                { id: 'light', label: 'Apple Frost', emoji: '☁️', color: '#cbd5e1' },
+                { id: 'dark', label: 'Midnight', emoji: '🌙', color: '#334155' },
               ].map(item => {
-                const Icon = item.icon;
                 const isActive = settings.theme === item.id;
                 return (
                   <button
                     key={item.id}
                     type="button"
-                    className={`theme-btn press-scale ${isActive ? 'active' : ''}`}
+                    className={`theme-chip-btn press-scale ${isActive ? 'active' : ''}`}
                     onClick={() => {
                       playTickSound(0.2);
                       handleChange('theme', item.id);
                     }}
                   >
-                    <Icon size={14} />
-                    <span>{item.label}</span>
+                    <span className="chip-color-dot" style={{ backgroundColor: item.color }} />
+                    <span className="chip-emoji">{item.emoji}</span>
+                    <span className="chip-label">{item.label}</span>
                   </button>
                 );
               })}
