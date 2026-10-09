@@ -1,0 +1,160 @@
+/* Apple Design System & Global Styles */
+
+:root {
+  /* System Typography */
+  --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  /* Apple System Colors - Light Mode Defaults */
+  --color-bg-base: #f2f2f7;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: rgba(255, 255, 255, 0.72);
+  --color-bg-glass: rgba(255, 255, 255, 0.65);
+  --color-bg-glass-heavy: rgba(255, 255, 255, 0.85);
+  
+  --color-text-primary: #1c1c1e;
+  --color-text-secondary: #8e8e93;
+  --color-text-tertiary: #aeaeb2;
+
+  --color-border: rgba(0, 0, 0, 0.08);
+  --color-border-subtle: rgba(0, 0, 0, 0.04);
+  --color-border-highlight: rgba(255, 255, 255, 0.8);
+
+  --color-shadow: rgba(0, 0, 0, 0.06);
+  --color-shadow-hover: rgba(0, 0, 0, 0.12);
+
+  /* Apple Dynamic Accents */
+  --color-apple-red: #ff3b30;
+  --color-apple-orange: #ff9500;
+  --color-apple-green: #34c759;
+  --color-apple-teal: #30b0c7;
+  --color-apple-blue: #007aff;
+  --color-apple-purple: #af52de;
+  --color-apple-indigo: #5856d6;
+
+  /* Current Active Phase Dynamic Colors */
+  --accent-color: #ff3b30;
+  --accent-glow: rgba(255, 59, 48, 0.28);
+  --accent-subtle: rgba(255, 59, 48, 0.12);
+
+  /* Physics Transitions */
+  --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-smooth: 280ms var(--spring-snappy);
+  --transition-fast: 150ms var(--spring-snappy);
+}
+
+[data-theme="dark"] {
+  --color-bg-base: #0a0a0c;
+  --color-bg-secondary: #141418;
+  --color-bg-tertiary: rgba(28, 28, 32, 0.65);
+  --color-bg-glass: rgba(24, 24, 28, 0.68);
+  --color-bg-glass-heavy: rgba(24, 24, 28, 0.85);
+
+  --color-text-primary: #f5f5f7;
+  --color-text-secondary: #98989d;
+  --color-text-tertiary: #636366;
+
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-highlight: rgba(255, 255, 255, 0.18);
+
+  --color-shadow: rgba(0, 0, 0, 0.45);
+  --color-shadow-hover: rgba(0, 0, 0, 0.65);
+
+  /* Apple Dark System Colors */
+  --color-apple-red: #ff453a;
+  --color-apple-orange: #ff9f0a;
+  --color-apple-green: #30d158;
+  --color-apple-teal: #40c8e0;
+  --color-apple-blue: #0a84ff;
+  --color-apple-purple: #bf5af2;
+  --color-apple-indigo: #5e5ce6;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-system);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  overflow-x: hidden;
+  transition: background-color 400ms var(--spring-snappy), color 400ms var(--spring-snappy);
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tabular numbers for clean Apple timers without jitter */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Translucent Glass Material utility */
+.glass-panel {
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 16px 36px -12px var(--color-shadow);
+  border-top: 1px solid var(--color-border-highlight);
+}
+
+/* Touch & Click tactile response - instant pointer feedback */
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.press-scale {
+  transition: transform 120ms ease-out, filter 120ms ease-out, background-color 150ms ease-out;
+  will-change: transform;
+}
+
+.press-scale:active {
+  transform: scale(0.95) !important;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* Apple Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
