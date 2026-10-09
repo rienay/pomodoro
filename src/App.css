@@ -1610,4 +1610,69 @@
   }
 }
 
+/* =========================================================
+   🍮 SUBTLE APPLE-STYLE WATERMARK FOOTER
+   ========================================================= */
+
+.app-watermark-footer {
+  position: relative;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 16px 20px;
+  width: 100%;
+}
+
+.watermark-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+  box-shadow: 0 4px 14px -3px var(--color-shadow);
+  letter-spacing: -0.01em;
+  transition: transform 200ms ease, color 200ms ease;
+  user-select: none;
+}
+
+.watermark-pill:hover {
+  transform: translateY(-2px);
+  color: var(--color-text-primary);
+}
+
+.watermark-heart {
+  display: inline-block;
+  animation: heart-beat 1.8s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes heart-beat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+.watermark-author {
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.watermark-dot {
+  opacity: 0.4;
+  font-size: 0.65rem;
+}
+
+.watermark-app {
+  opacity: 0.85;
+  font-weight: 500;
+}
+
+
 

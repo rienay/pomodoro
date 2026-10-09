@@ -480,6 +480,18 @@ export default function App() {
         )}
       </main>
 
+      {/* Subtle Apple-style Watermark Footer */}
+      <footer className="app-watermark-footer">
+        <div className="watermark-pill glass-panel">
+          <span>Crafted with</span>
+          <span className="watermark-heart">💖</span>
+          <span>by</span>
+          <strong className="watermark-author">Rienay</strong>
+          <span className="watermark-dot">•</span>
+          <span className="watermark-app">Pudding Timer 🍮</span>
+        </div>
+      </footer>
+
       {/* Settings Modal */}
       <SettingsModal
         isOpen={isSettingsOpen}
