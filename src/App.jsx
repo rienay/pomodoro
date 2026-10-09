@@ -265,7 +265,7 @@ export default function App() {
     const timeStr = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
     const modeName = mode === 'focus' ? 'Focus' : mode === 'shortBreak' ? 'Short Break' : 'Long Break';
     const stateIcon = isRunning ? '⏳' : '⏸';
-    document.title = `${timeStr} ${stateIcon} ${modeName} | Apple Pomodoro`;
+    document.title = `${timeStr} ${stateIcon} ${modeName} | Pudding Timer 🍮`;
   }, [timeLeft, mode, isRunning]);
 
   // Keyboard Shortcuts (Space, R, S, F, 1, 2, 3)
@@ -360,8 +360,8 @@ export default function App() {
       <header className="top-navigation-bar">
         <div className="nav-left">
           <div className="apple-brand-badge">
-            <span className="apple-icon"></span>
-            <span className="brand-name">FlowTimer</span>
+            <span className="apple-icon">🍮</span>
+            <span className="brand-name">Pudding Timer</span>
           </div>
         </div>
 

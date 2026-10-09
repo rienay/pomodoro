@@ -1,6 +1,6 @@
-#  FlowTimer — Apple Design Pomodoro Web App
+# 🍮 Pudding Timer — Cute Pomodoro Web App
 
-A fluid, tactile Pomodoro web application built according to **Apple WWDC Human Interface Guidelines**, featuring translucent materials, dynamic spring motion, procedural Web Audio soundscapes, and full responsiveness.
+A fluid, tactile Pomodoro web application with adorable cartoon mascots, gentle ambient floaters, and **Apple WWDC Human Interface Guidelines** design.
 
 Designed to be deployed seamlessly on **Vercel**.
 
