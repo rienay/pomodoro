@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
 import { playTickSound } from '../utils/audio';
 
 const MODES = [
@@ -8,16 +8,38 @@ const MODES = [
 ];
 
 export function ModePill({ currentMode, onSelectMode }) {
-  const activeIndex = MODES.findIndex(m => m.id === currentMode);
+  const tabsRef = useRef({});
+  const [indicatorStyle, setIndicatorStyle] = useState({ left: 4, width: 0, opacity: 0 });
+
+  const updateIndicator = () => {
+    const activeEl = tabsRef.current[currentMode];
+    if (activeEl) {
+      setIndicatorStyle({
+        left: activeEl.offsetLeft,
+        width: activeEl.offsetWidth,
+        opacity: 1,
+      });
+    }
+  };
+
+  useLayoutEffect(() => {
+    updateIndicator();
+  }, [currentMode]);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateIndicator);
+    return () => window.removeEventListener('resize', updateIndicator);
+  }, [currentMode]);
 
   return (
     <div className="mode-segmented-control glass-panel" role="tablist">
-      {/* Sliding pill indicator */}
+      {/* Pixel-perfect sliding pill indicator aligned directly with DOM element */}
       <div
         className="segmented-indicator"
         style={{
-          width: `calc(${100 / MODES.length}% - 6px)`,
-          transform: `translateX(calc(${activeIndex * 100}% + ${activeIndex * 6}px))`,
+          transform: `translateX(${indicatorStyle.left}px)`,
+          width: `${indicatorStyle.width}px`,
+          opacity: indicatorStyle.opacity,
         }}
       />
 
@@ -26,6 +48,7 @@ export function ModePill({ currentMode, onSelectMode }) {
         return (
           <button
             key={mode.id}
+            ref={(el) => { tabsRef.current[mode.id] = el; }}
             type="button"
             role="tab"
             aria-selected={isActive}

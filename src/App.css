@@ -325,21 +325,22 @@
 .mode-segmented-control {
   position: relative;
   display: inline-flex;
+  align-items: center;
   padding: 4px;
   border-radius: 999px;
   width: auto;
-  max-width: 360px;
+  max-width: 380px;
 }
 
 .segmented-indicator {
   position: absolute;
   top: 4px;
   bottom: 4px;
-  left: 4px;
+  left: 0;
   background: var(--color-bg-secondary);
   border-radius: 999px;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  transition: transform 300ms var(--spring-snappy), width 300ms var(--spring-snappy);
+  transition: transform 280ms var(--spring-snappy), width 280ms var(--spring-snappy), opacity 150ms ease;
   pointer-events: none;
   z-index: 1;
 }
