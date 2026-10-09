@@ -403,9 +403,9 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Experience Layout */}
+      {/* Main Experience Layout - Side by Side on Desktop */}
       <main className="app-main-content">
-        {/* Center Clock Core */}
+        {/* Left Column: Centerpiece Timer Hero */}
         <section className="timer-hero-section">
           {/* iOS Segmented Glass Pill */}
           <div className="mode-pill-wrapper">
@@ -443,18 +443,27 @@ export default function App() {
           )}
         </section>
 
-        {/* Bottom Widgets Row: Activity Rings, Reminders, Ambient Sound */}
+        {/* Right Column: Widgets Side Dashboard (Always visible without scrolling) */}
         {!isFullscreen && (
-          <section className="widgets-grid-section">
-            <ActivityRings
-              focusMinutes={stats.focusMinutes}
-              focusGoal={100}
-              sessionsCompleted={stats.sessionsCompleted}
-              sessionsGoal={settings.longBreakInterval}
-              breaksTaken={stats.breaksTaken}
-              breaksGoal={settings.longBreakInterval}
-              dailyStreak={stats.dailyStreak}
-            />
+          <aside className="widgets-dashboard-aside">
+            <div className="widgets-top-row">
+              <ActivityRings
+                focusMinutes={stats.focusMinutes}
+                focusGoal={100}
+                sessionsCompleted={stats.sessionsCompleted}
+                sessionsGoal={settings.longBreakInterval}
+                breaksTaken={stats.breaksTaken}
+                breaksGoal={settings.longBreakInterval}
+                dailyStreak={stats.dailyStreak}
+              />
+
+              <AmbientSoundBar
+                ambientType={ambientType}
+                volume={ambientVolume}
+                onSelectAmbient={handleSelectAmbient}
+                onChangeVolume={(vol) => setAmbientVolume(vol)}
+              />
+            </div>
 
             <TaskReminders
               tasks={tasks}
@@ -464,14 +473,7 @@ export default function App() {
               onAddTask={(newTask) => setTasks(prev => [newTask, ...prev])}
               onDeleteTask={(id) => setTasks(prev => prev.filter(t => t.id !== id))}
             />
-
-            <AmbientSoundBar
-              ambientType={ambientType}
-              volume={ambientVolume}
-              onSelectAmbient={handleSelectAmbient}
-              onChangeVolume={(vol) => setAmbientVolume(vol)}
-            />
-          </section>
+          </aside>
         )}
       </main>
 

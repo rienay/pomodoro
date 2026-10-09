@@ -298,18 +298,29 @@
   color: #30d158;
 }
 
-/* App Main Content */
+/* App Main Content - Desktop Side-by-Side Split Dashboard */
 .app-main-content {
   position: relative;
   z-index: 10;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 20px 24px 60px;
-  display: flex;
-  flex-direction: column;
+  padding: 10px 24px 30px;
+  display: grid;
+  grid-template-columns: minmax(360px, 440px) 1fr;
   align-items: center;
+  justify-content: center;
   gap: 40px;
+  min-height: calc(100vh - 85px);
+}
+
+@media (max-width: 1060px) {
+  .app-main-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 50px;
+    min-height: auto;
+  }
 }
 
 /* Hero Section */
@@ -317,7 +328,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 26px;
+  justify-content: center;
+  gap: 20px;
   width: 100%;
 }
 
@@ -370,8 +382,8 @@
 /* Timer Ring centerpiece */
 .timer-ring-container {
   position: relative;
-  width: 360px;
-  height: 360px;
+  width: 330px;
+  height: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,16 +570,22 @@
   color: var(--color-apple-green);
 }
 
-/* Widgets Grid Section */
-.widgets-grid-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+/* Right Column: Widgets Dashboard Aside */
+.widgets-dashboard-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   width: 100%;
 }
 
-@media (max-width: 960px) {
-  .widgets-grid-section {
+.widgets-top-row {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 16px;
+}
+
+@media (max-width: 720px) {
+  .widgets-top-row {
     grid-template-columns: 1fr;
   }
 }
@@ -576,8 +594,8 @@
 .activity-card,
 .tasks-card,
 .ambient-bar {
-  border-radius: 28px;
-  padding: 24px;
+  border-radius: 24px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
 }
@@ -589,7 +607,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .activity-subtitle,
@@ -866,10 +884,10 @@
 
 /* Ambient Sound Bar */
 .sound-chips-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .sound-chip {
